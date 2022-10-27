@@ -6,11 +6,12 @@
 /*   By: crazyd <crazyd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 14:36:24 by crazyd            #+#    #+#             */
-/*   Updated: 2022/10/12 15:56:23 by crazyd           ###   ########.fr       */
+/*   Updated: 2022/10/27 15:48:28 by crazyd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ALGORITHM_HPP
+#define ALGORITHM_HPP
 
 namespace ft
 {
@@ -72,3 +73,5 @@ bool lexicographical_compare (InputIterator1 first1, InputIterator1 last1, Input
 }
 
 } // namespace ft
+
+#endif
