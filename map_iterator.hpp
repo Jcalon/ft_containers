@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_iterator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcalon <jcalon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: crazyd <crazyd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:15:04 by jcalon            #+#    #+#             */
-/*   Updated: 2022/11/02 19:54:00 by jcalon           ###   ########.fr       */
+/*   Updated: 2022/11/04 00:23:49 by crazyd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ class map_iterator
 				return *this;
 			}
 
-			node_pointer	get_node(void)
+			node_pointer	get_node(void) const
 			{
 				return (this->_node_pointer);
 			}
@@ -105,6 +105,13 @@ class map_iterator
 				return this->_node_pointer->_data;
 			}
 	};
+
+template <class Iterator>
+std::ostream &operator<<(std::ostream &o, map_iterator<Iterator> const &i)
+{
+	o << "node adress: " << i.get_node() << std::endl;
+	return o;
+}
 
 } // namespace ft
 
