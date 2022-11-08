@@ -6,7 +6,7 @@
 /*   By: crazyd <crazyd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:15:10 by jcalon            #+#    #+#             */
-/*   Updated: 2022/11/08 11:53:33 by crazyd           ###   ########.fr       */
+/*   Updated: 2022/11/08 13:18:25 by crazyd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,8 @@ namespace ft
 
 		size_type max_size(void) const
 		{
+			if (sizeof(T) != 4)
+				return static_cast<size_type>(std::numeric_limits<size_type>::max() / (sizeof(ft::RedBlackTree<value_type>) + sizeof(T)) / 2);
 			return _node_allocator.max_size();
 		}
 
