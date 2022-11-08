@@ -22,7 +22,7 @@ template<class T, class Container = ft::vector<T> >
 class stack
 {
     public : //types
-        typedef Container container_type;
+        typedef Container 								container_type;
         typedef typename container_type::value_type 	value_type;
         typedef typename container_type::size_type		size_type;
 

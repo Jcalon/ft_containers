@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crazyd <crazyd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcalon <jcalon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:15:20 by jcalon            #+#    #+#             */
-/*   Updated: 2022/11/08 11:57:18 by crazyd           ###   ########.fr       */
+/*   Updated: 2022/11/08 13:50:00 by jcalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ template <class T, class Alloc = std::allocator<T> >
 class vector
 {
 	public: // types
-		typedef T value_type;
-		typedef Alloc allocator_type;
+		typedef T 															value_type;
+		typedef Alloc 														allocator_type;
 		typedef typename allocator_type::reference 							reference;
 		typedef typename allocator_type::const_reference					const_reference;
 		typedef typename allocator_type::pointer			 				pointer;

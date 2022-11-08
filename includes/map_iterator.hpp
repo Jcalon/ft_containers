@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_iterator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crazyd <crazyd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcalon <jcalon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:15:04 by jcalon            #+#    #+#             */
-/*   Updated: 2022/11/07 17:50:48 by crazyd           ###   ########.fr       */
+/*   Updated: 2022/11/08 18:46:16 by jcalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "iterator.hpp"
 #include "rbtree.hpp"
-#include "map.hpp"
+#include "../containers/map.hpp"
 
 namespace ft
 {
@@ -26,7 +26,7 @@ class map_iterator
 	public:
 
 			typedef	map_iterator<T, Pointer, Reference>	this_type;
-			typedef	map_iterator<T, T*, T&>	iterator;
+			typedef	map_iterator<T, T*, T&>				iterator;
 			typedef	map_iterator<T, const T*, const T&>	const_iterator;
 			typedef Category							iterator_category;
 			typedef T									value_type;
