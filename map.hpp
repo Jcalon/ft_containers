@@ -6,7 +6,7 @@
 /*   By: crazyd <crazyd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:15:10 by jcalon            #+#    #+#             */
-/*   Updated: 2022/11/04 02:06:48 by crazyd           ###   ########.fr       */
+/*   Updated: 2022/11/08 11:53:33 by crazyd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define map_hpp
 
 #include <iostream>
+#include <limits>
 #include "utility.hpp"
 #include "iterator.hpp"
 #include "map_iterator.hpp"
@@ -36,12 +37,13 @@ namespace ft
 		typedef typename Alloc::const_reference const_reference;
 		typedef typename Alloc::pointer pointer;
 		typedef typename Alloc::const_pointer const_pointer;
-		typedef ft::map_iterator<value_type> iterator;
-		typedef ft::map_iterator<value_type> const_iterator;
+		typedef ft::map_iterator<value_type, value_type *, value_type &> iterator;
+		typedef ft::map_iterator<value_type, const value_type *, const value_type &> const_iterator;
 		typedef ft::reverse_iterator<iterator> reverse_iterator;
 		typedef ft::reverse_iterator<const_iterator> const_reverse_iterator;
 		typedef std::ptrdiff_t difference_type;
 		typedef std::size_t size_type;
+		typedef typename Alloc::template rebind<ft::RedBlackTree<value_type> >::other node_allocator_type;
 
 		class value_compare
 		{
@@ -59,7 +61,6 @@ namespace ft
 		};
 
 	protected:
-		typedef typename Alloc::template rebind<ft::RedBlackTree<value_type> >::other node_allocator_type;
 		size_type _size;
 		key_compare _compare;
 		allocator_type _allocator;
@@ -159,12 +160,12 @@ namespace ft
 
 		reverse_iterator rend(void)
 		{
-			return reverse_iterator(this->_root);
+			return reverse_iterator(this->begin());
 		}
 
 		const_reverse_iterator rend(void) const
 		{
-			return const_reverse_iterator(this->_root);
+			return const_reverse_iterator(this->begin());
 		}
 
 		// capacity
@@ -176,7 +177,7 @@ namespace ft
 
 		size_type max_size(void) const
 		{
-			return this->_node_allocator.max_size();
+			return _node_allocator.max_size();
 		}
 
 		bool empty(void) const
@@ -188,6 +189,11 @@ namespace ft
 
 		void clear(void)
 		{
+			if (this->_size == 0 && this->_root && ft::is_nil(this->_root))
+			{
+				this->_node_allocator.deallocate(this->_root, 1);
+				this->_root = NULL;
+			}
 			this->erase(this->begin(), this->end());
 			this->_root = NULL;
 		}
@@ -328,9 +334,9 @@ namespace ft
 				if (this->value_comp()(*node->_data, boundary_pair))
 					node = ft::tree_next(node);
 				else
-					return const_iterator(node);
+					return iterator(node);
 			}
-			return (const_iterator(end_node));
+			return (iterator(end_node));
 		}
 
 		const_iterator lower_bound(const key_type &k) const
@@ -358,11 +364,11 @@ namespace ft
 			while (node != end_node)
 			{
 				if (this->value_comp()(boundary_pair, *node->_data))
-					return const_iterator(node);
+					return iterator(node);
 				else
 					node = ft::tree_next(node);
 			}
-			return (const_iterator(end_node));
+			return (iterator(end_node));
 		}
 
 		const_iterator upper_bound(const key_type &k) const

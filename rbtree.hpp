@@ -455,7 +455,7 @@ namespace ft
 		return (tree_search_node(root->right, data_ref, compare));
 	}
 
-	// delete note
+	// delete node
 
 	template <class T>
 	void deal_double_black(ft::RedBlackTree<T> *double_black_node);
