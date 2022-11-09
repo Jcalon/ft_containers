@@ -69,42 +69,54 @@ class stack
         template <class T1, class C1>
         friend bool operator<(const stack<T1, C1> &lhs, const stack<T1, C1> &rhs);
 
+		template <class T1, class C1>
+        friend bool operator<=(const stack<T1, C1> &lhs, const stack<T1, C1> &rhs);
+
+		template <class T1, class C1>
+        friend bool operator>(const stack<T1, C1> &lhs, const stack<T1, C1> &rhs);
+
+		template <class T1, class C1>
+        friend bool operator>=(const stack<T1, C1> &lhs, const stack<T1, C1> &rhs);
+
+		template <class T1, class C1>
+        friend bool operator!=(const stack<T1, C1> &lhs, const stack<T1, C1> &rhs);
+
 };
 
 //external overloads
 
 template <class T, class Container>
-bool operator==(const stack <T, Container> &lhs, const stack <T, Container> &rhs)
+bool operator==(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
 {
     return lhs.c == rhs.c;
 }
 
 template <class T, class Container>
-bool operator!=(const stack <T, Container> &lhs, const stack <T, Container> &rhs)
+bool operator!=(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
 {
     return !(lhs == rhs);
 }
 
 template <class T, class Container>
-bool operator<(const stack <T, Container> &lhs, const stack <T, Container> &rhs)
+bool operator<(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
 {
     return lhs.c < rhs.c;
 }
 
 template <class T, class Container>
-bool operator>(const stack <T, Container> &lhs, const stack <T, Container> &rhs)
+bool operator>(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
 {
     return rhs < lhs;
 }
 
 template <class T, class Container>
-bool operator<=(const stack <T, Container> &lhs, const stack <T, Container> &rhs)
+bool operator<=(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
 {
     return !(lhs > rhs);
 }
 
 template <class T, class Container>
-bool operator>=(const stack <T, Container> &lhs, const stack <T, Container> &rhs)
+bool operator>=(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
 {
     return !(lhs < rhs);
 }

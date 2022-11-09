@@ -6,27 +6,33 @@
 /*   By: jcalon <jcalon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:15:48 by jcalon            #+#    #+#             */
-/*   Updated: 2022/11/08 18:45:46 by jcalon           ###   ########.fr       */
+/*   Updated: 2022/11/09 15:52:59 by jcalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <deque>
-#if 1 //CREATE A REAL STL EXAMPLE
+
+#ifndef TEST
+	#define TEST 0
+#endif
+
+#if TEST
 	#include <map>
 	#include <stack>
 	#include <vector>
 	namespace ft = std;
 #else
-	#include "./containers/map.hpp"
-	#include "./containers/stack.hpp"
-	#include "./containers/vector.hpp"
+	#include "map.hpp"
+	#include "stack.hpp"
+	#include "vector.hpp"
 #endif
 
 int main(void)
 {
-
+	if (TEST)
+		std::cout << "The only diff that should appears" << std::endl;
 // TESTING STACK
 	
 	ft::stack<int> stck;

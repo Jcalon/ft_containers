@@ -6,7 +6,7 @@
 /*   By: jcalon <jcalon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:15:04 by jcalon            #+#    #+#             */
-/*   Updated: 2022/11/08 18:46:16 by jcalon           ###   ########.fr       */
+/*   Updated: 2022/11/09 16:42:46 by jcalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "iterator.hpp"
 #include "rbtree.hpp"
-#include "../containers/map.hpp"
+#include "map.hpp"
 
 namespace ft
 {
@@ -25,21 +25,19 @@ class map_iterator
 {
 	public:
 
-			typedef	map_iterator<T, Pointer, Reference>	this_type;
-			typedef	map_iterator<T, T*, T&>				iterator;
-			typedef	map_iterator<T, const T*, const T&>	const_iterator;
-			typedef Category							iterator_category;
-			typedef T									value_type;
-			typedef Pointer								pointer;
-			typedef Reference							reference;
-			typedef ft::RedBlackTree<T>*				node_pointer;
-			typedef ft::RedBlackTree<T>&				node_reference;
-			typedef std::ptrdiff_t						difference_type;
-			template <class K, class T2, class C, class A>
-			friend class map;
-
-		// protected:
-			node_pointer	_node_pointer;
+		typedef	map_iterator<T, Pointer, Reference>	this_type;
+		typedef	map_iterator<T, T*, T&>				iterator;
+		typedef	map_iterator<T, const T*, const T&>	const_iterator;
+		typedef Category							iterator_category;
+		typedef T									value_type;
+		typedef Pointer								pointer;
+		typedef Reference							reference;
+		typedef ft::RedBlackTree<T>*				node_pointer;
+		typedef ft::RedBlackTree<T>&				node_reference;
+		typedef std::ptrdiff_t						difference_type;
+		template <class K, class T2, class C, class A>
+		friend class map;
+		node_pointer	_node_pointer;
 			
 		public:
 			//canonical

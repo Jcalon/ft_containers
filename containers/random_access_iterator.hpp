@@ -6,7 +6,7 @@
 /*   By: jcalon <jcalon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:15:41 by jcalon            #+#    #+#             */
-/*   Updated: 2022/11/02 14:27:16 by jcalon           ###   ########.fr       */
+/*   Updated: 2022/11/09 16:43:52 by jcalon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ class random_access_iterator
 		typedef	Category										iterator_category;
 		template <class T2, class A>
 		friend class vector;
-
-	// protected:
 		pointer	_array;
 
 	public:
@@ -116,37 +114,37 @@ class random_access_iterator
 		}
 
 		template<typename T2, typename P, typename R, class C>
-		friend inline bool operator==(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
+		friend bool operator==(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
 		{
 			return lhs._array == rhs._array;
 		}
 
 		template<typename T2, typename P, typename R, class C>
-		friend inline bool operator!=(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
+		friend bool operator!=(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
 		{
 			return !(lhs == rhs);
 		}
 
 		template<typename T2, typename P, typename R, class C>
-		friend inline bool operator<(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
+		friend bool operator<(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
 		{
 			return lhs._array < rhs._array;
 		}
 
 		template<typename T2, typename P, typename R, class C>
-		friend inline bool operator>(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
+		friend bool operator>(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
 		{
 			return rhs < lhs;
 		}
 
 		template<typename T2, typename P, typename R, class C>
-		friend inline bool operator<=(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
+		friend bool operator<=(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
 		{
 			return !(rhs < lhs);
 		}
 
 		template<typename T2, typename P, typename R, class C>
-		friend inline bool operator>=(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
+		friend bool operator>=(const this_type &lhs, const random_access_iterator<T2, P, R, C> &rhs)
 		{
 			return !(lhs < rhs);
 		}
